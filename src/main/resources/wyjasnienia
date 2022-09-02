@@ -1,0 +1,45 @@
+Metody REST (najpopularniejsze):
+1) GET - pobieranie danych z serwera po przekazanych parametrach
+2) POST - ogólna zmiana danych (tworzenie i modyfikacje) na serwerze, po przekazanych parametrach
+3) PUT - tylko tworzenie obiektu/zbioru danych na serwerze
+4) DELETE - usuwanie danych z serwera po przekazanych parametrach
+5) PATCH - aktualizuje części zgromadzonych danych na serwerze
+2, 3, 4 -   czasem zamiennie
+1-5     -   zarządza się użytkownikami
+utworzenie bankomatu PUT/DELETE
+dodawanie/odejowanie kwot POST/GET
+
+Statusy odpowiedzi (5 kat):
+1) 100-199 (informują o stanie, przebiegach)
+2) 200-299 (potwierdzenie realizacji przez serwer)
+3) 300-399 (kody przekierowania)
+4) 400-499 (kody błędów po stronie klienta)
+5) 500-599 (kody błędów po stronie klienta)
+
+Oczekiwane statusy odpowiedzi w ramach metod REST:
+GET:
+    - 200 (OK) i najczęściej zwraca
+    - 404 (Not Found)
+POST:
+    - 201 (Created)
+    - 409 (Conflict)
+PUT:
+    - 200 (OK) lub 204 (No Content)
+    - 404 (Not Found) lub 409 (Conflict)
+DELETE:
+    - 200 (OK)
+    - 404 (Not Found)
+PATCH:
+    - 200 (OK) lub 204 (No Content)
+    - 404 (Not Found) lub 409 (Conflict)
+
+500 wspólny dla wszystkich
+401 UNAUTHORIZED
+
+Idempotentność - wykonanie metody HTTP nie powinno zmienić stanu aplikacji
+(GET, PUT, DELETE)
+
+Bezpieczeństwo
+(
+
+
