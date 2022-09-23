@@ -1,0 +1,34 @@
+select concat('a','b', 'c', 'd');
+select concat('admin', 14, '@', 'gmail', '.', 'com');
+select concat('a','b', ' ',' c', 'd');
+select concat('admin', NULL, 'admin');
+
+select 'admin' || ' ' || 'admin' as Result;
+select 'admin' || NULL as result;
+
+select 5 + 3 as result;
+select now() as result;
+
+TWORZENIE TABELI:
+create table szkolenie (
+	id			integer,
+	imie		varchar(255),
+	nazwisko	varchar(255),
+	primary key(id)
+); //później play i w Table jest szkolenie
+
+DODAWANIE DANYCH DO TABELI
+insert into szkolenie(id, imie, nazwisko) values (1, 'Arleta', 'Szamer-Gimzewska');
+
+--select sz.imie, sz.nazwisko, prz.przychod
+--from szkolenie sz
+--left join przychody prz
+--on sz.id = cast(prz.id_uzytkownika as Integer)
+--where sz.id = 1;
+--;
+
+
+--alter table przychody
+--alter column id_uzytkownika type integer
+--using cast (id_uzytkownika as integer);
+

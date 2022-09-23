@@ -1,4 +1,4 @@
-package pl.cyber.trainees.demo.endpoint;
+package pl.cyber.trainees.demo.service;
 
 
 import org.springframework.stereotype.Service;

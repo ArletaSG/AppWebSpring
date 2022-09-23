@@ -29,44 +29,6 @@ public class PierwszyController {
                 .imie(imie)
                 .build();
             }
-
-    @GetMapping("/person")
-    public PersonDTO getPerson(@RequestBody final PersonRequest request){
-        return service.getPerson(request);
-    }
-
-    @GetMapping("/person/params")
-    public PersonDTO getPersonParam ( @RequestParam final String imie, @RequestParam final String nazwisko) {
-        return service.getPersonParams(imie, nazwisko);
-    }
-
-
-@PutMapping("/create")
-@ResponseStatus(HttpStatus.NO_CONTENT)
-    public void createPerson(@RequestBody final PersonRequest request) {
-       log.info("Dokonuje utworzenia Osoby");
-        service.createPerson(request);
-
-    }
-
-    @PostMapping("/update")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updatePerson(@RequestBody final PersonRequest request) {
-        log.info("Dokonuje aktualizacji Osoby");
-        service.updatePerson(request);
-    }
-/*
-User PersonDTO  <-> Server Person <-> DB PersonEntity
-        PersonRequest
- */
-    //Zadanie Utworzyć 2 obiekty:
-    //1. PersonDTO, który będzie przekazywane dla uzytkowanika
-    //2. Person jako obiekt wewnętrzny aplikacji
-    //PersonRequest
-    //metody GET (@GetMapping), PUT (PutMapping), POST (PostMapping)
-    //Utworzyć metody REST do tworzenia użytkownika, zmiany jego danych oraz jego pobierania.
-
-    //IMIE, NAZWISKO, DATA UR, MIASTO ZAMIESZKANIA, PŁEĆ
-
+// dotąd jest pierwszy kontroler
 
 }

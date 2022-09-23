@@ -6,6 +6,7 @@ import pl.cyber.trainees.demo.dto.IntegerListRequest;
 import pl.cyber.trainees.demo.dto.OnetStringRequest;
 import pl.cyber.trainees.demo.dto.RownanieKwRequest;
 import pl.cyber.trainees.demo.dto.StringRequest;
+import pl.cyber.trainees.demo.service.BasicsService;
 import pl.cyber.trainees.demo.service.KalkulatorService;
 import pl.cyber.trainees.demo.service.ZnajdzService;
 
@@ -286,6 +287,63 @@ restowym nie doszło do jej modyfikacji.
         return kalkulatorService.rownanieKwadratowe2miejsca(request);
     }
 
+//-----------------------------------zad.10------------------------------------------------
+    //Za pomocą instrukcji pętli for dla danych wartości x od 0-10 obliczzymy y=3x
+    @GetMapping("/zadanie10a")
+    public  String zadanie10a() {
+        return kalkulatorService.zadanie10a();
+    }
+
+    //----------------------zad.10b---------------------------------------------------------
+//Za pomocą instrukcji pętli do while dla danych wartości x od 0-10 obliczzymy y=3x
+    @GetMapping("/zadanie10b")
+    public  String zadanie10b() {
+        return kalkulatorService.zadanie10b();
+    }
+
+        //----------------------zad.10c---------------------------------------------------------
+//Za pomocą instrukcji pętli while dla danych wartości x od 0-10 obliczzymy y=3x
+        @GetMapping("/zadanie10c")
+        public  String zadanie10c() {
+            return kalkulatorService.zadanie10c();
+
+    }
+
+
+    //--------------------zad.11a--------------------------------------------------------------
+
+    /*
+Napisac program, który przy pomocy pętli for przekaże nam wyniki tabl mnożenia od 1..10
+Potrzebujemy dwie pętle for
+Parametr 1-10
+
+for(i) { //wiersze
+   for(j) { //kolumny
+   //obl mnożenia a*b oraz tab
+   }
+   Enter
+   }
+     */
+
+    @GetMapping("/zadanie11a")
+    public String zadanie11a() {
+        return kalkulatorService.zadanie11a();
+    }
+
+    @GetMapping("/zadanie11aa")
+    public String zadanie11aa() {
+        return kalkulatorService.zadanie11aa();
+    }
+
+    @GetMapping("/zadanie11b")
+    public String zadanie11b() {
+        return kalkulatorService.zadanie11b();
+    }
+
+    @GetMapping("/zadanie11c")
+    public String zadanie11c() {
+        return kalkulatorService.zadanie11c();
+    }
 
 
 }
