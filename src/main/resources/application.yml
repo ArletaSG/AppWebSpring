@@ -1,5 +1,59 @@
-      server:
-        port: 8150
-        servlet:
-          context-path: /demo
-          #komentarze
+server:
+  port: 8150
+  servlet:
+    context-path: /demo
+    #komentarze
+
+spring:
+  datasource:
+    url: jdbc:postgresql://185.204.217.194:5432/as_db
+    username: arletas
+    password: as-12345
+    # url: jdbc:postgresql://185.204.217.194:5432/[nazwa-bd]
+    # localhost - baza danych na lokalnych PC
+    # 127.0.0.1 - baza danych na lokalnych PC
+    # db.google.com baza serwerownie Google
+    # Adres IP Publiczny - adres, pod którym jest nasza b.d.
+
+    # spring: -> konfiguracja dla Spring Boot'a [ogólnie]
+    #datasource: -> konfiguracja pod połączenie do b.d. w bazie H2 będzie inaczej
+    #  url: jdbc:postgresql://185.204.217.194:5432/as_db -> podanie ścieżki do serwera b.d.
+    # jdbc: -> wskazanie użycia sterownika  do połączeń z b.d.
+    # jdbc:postgresql:// -> info, który konkretnie używamy
+    #                   Jednocześnie jest to inf o protokole połączeniowym. Jak w przyp. stron WWW
+    #                   mamy protokół http:// lub https://
+    #  185.204.217.194 -> adres IP, pod którym dostępna jest b.d. Możliwe konfiguracje zostały podane wyżej
+    # 5432 -> standardowy port połączeniowy do serwerów z b.d. PostgreSQL
+    # ciekawostka:
+    #         W przyp. stron www opartych o protokół http to port 80
+    #         W przyp. stron www opartych o protokół https to port 443
+    # as_db -> nazwa b.d., do której mamy dostęp
+
+    # username: ->  login użytkownika do b.d.
+    # password: -> hasło użytkownika do b.c.
+    jpa: #otwarcie kontekstu ddo konfiguracji JPA, mechanizmu wspom. tworzenie zapytań SQL do b.d.
+      hibernate: # konf. mechanizmu, który "rozmawia" z b.d. poprzez zapytania SQL
+      ddl-auto: validate #konf. sprawdzająca atrukturę b.d.
+      use-new-id-generator-mappings: true #mechanizm dzieki któremu będziemy generować
+      # wartości dla id (primary key) naszych tabel
+      database-platform: org.hibernate.dialect.PostgreSQLDialect # ustalenie języka rozmowy z b.d.
+      show-sql: true # konf. aby zapytania SQŁ z app zostały wyświetlone w konsoli
+      properties:
+        hibernate:
+          format_sql: true #parametr ma za zadanie ładnie przedstawić zapytanie SQŁ do konsoli
+          temp:
+            use_jdbc-metadata_defaults: false
+    liquibase:
+      enabled: true #włączamy mechanizm liquibase, aby mógł za nas tworzyć strikturę b.d.
+      drop-first: false #zanim uruchomi się app to zostanie usunięta struktura b.d.
+      # i ponownie założona
+  logging:
+    level:
+      org:
+        hibernate:
+          type:
+            descriptor:
+              sql: trace # dostępne opcje INFO, TRACE, DEBUG
+                #INFO - będzie podst. inf. o parametrach w zapytaniu SQL
+              #TRACE - inf o parametrach oraz ich wartościach
+
